@@ -1,0 +1,18 @@
+#########################################################################
+# {{ ansible_managed }}
+#########################################################################
+
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+{{ ansible_default_ipv4.address }} {{ ansible_fqdn }} {{ ansible_hostname }}
+
+{% if (spacewalk_ip is defined) and (spacewalk_server is defined) %}
+# spacewalk server
+{{ spacewalk_ip }} {{ spacewalk_server }}
+{% endif %}
+
+{% if (hostsfileentry is defined) %}
+# extra hosts defined in hostsfileentry variable from ansible
+{% for entry in hostsfileentry %}
+{{ entry }}
+{% endfor %}
+{% endif %}

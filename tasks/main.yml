@@ -1,0 +1,6 @@
+# owner: systems
+# file: roles/configure.dns/tasks/main.yml
+# description: Main tasks file with include for DNS configuration and hostsfile entry.
+---
+- include: resolv.yml
+  #- include: hostsfile.yml

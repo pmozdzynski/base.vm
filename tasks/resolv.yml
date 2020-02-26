@@ -1,0 +1,14 @@
+# owner: systems
+# file: roles/configure.dns/tasks/resolv.yml
+# description: Tasks file to create resolv.conf from template
+---
+- name: Copy resolv.conf to hosts and set to environment DNS
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - dnsresolv
