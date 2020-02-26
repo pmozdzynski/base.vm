@@ -1,3 +1,2 @@
 ---
 nameserver3: "{{ nameserver1 }}"
-nameserver4: "{{ nameserver2 }}"
