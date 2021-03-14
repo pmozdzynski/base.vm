@@ -1,13 +1,9 @@
 ---
-- name: Open defined firewall ports 
-  hosts: all
-  become: true
-  tasks:
-    - name: Ensure Firewalld host-specific ports are opened
-      firewalld:
-        port: "{{ item }}"
-        permanent: true
-        state: enabled
+- name: Ensure Firewalld host-specific ports are opened
+    firewalld:
+      port: "{{ item }}"
+      permanent: true
+      state: enabled
       with_items:
         - "{{ firewallports }}"
       when: firewallports is defined
