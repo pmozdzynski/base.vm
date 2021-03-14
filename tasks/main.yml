@@ -7,5 +7,5 @@
   #- include: hostsfile.yml
 
 
-- inclusde: firewall.yml
+- include: firewall.yml
   when: firewallports is defined
