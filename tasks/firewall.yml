@@ -1,5 +1,5 @@
 ---
-- name: Configure firewalld before starting
+- name: Open defined firewall ports 
   hosts: all
   become: true
   tasks:
