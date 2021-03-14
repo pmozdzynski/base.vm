@@ -5,3 +5,7 @@
 - include: resolv.yml
   when: vmguest_network_type is defined and vmguest_network_type == "static"
   #- include: hostsfile.yml
+
+
+- inclusde: firewall.yml
+  when: firewallports is defined
