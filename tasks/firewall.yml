@@ -1,9 +1,13 @@
 ---
-- name: Ensure Firewalld host-specific ports are opened
-    firewalld:
-      port: "{{ item }}"
-      permanent: true
-      state: enabled
+- name: Configure firewalld before starting
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure Firewalld host-specific ports are opened
+      firewalld:
+        port: "{{ item }}"
+        permanent: true
+        state: enabled
       with_items:
         - "{{ firewallports }}"
       when: firewallports is defined
@@ -11,3 +15,4 @@
         - restart firewall
     - name: reload dynamically
       shell: firewall-cmd --reload
+
