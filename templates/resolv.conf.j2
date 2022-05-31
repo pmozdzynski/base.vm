@@ -2,6 +2,6 @@
 # {{ ansible_managed  }}
 #########################################################################
 
-search {{ ad_domain }}
+search {{ ad_domain }} {{ vmguest_domain }}
 nameserver {{ nameserver1 }}
 nameserver {{ nameserver2 }}
