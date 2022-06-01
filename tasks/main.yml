@@ -6,3 +6,5 @@
   when: vmguest_network_type is defined and vmguest_network_type == "static"
 
 - include: hostsfile.yml
+
+- include: ca_cert.yml
