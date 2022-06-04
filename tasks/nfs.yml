@@ -1,0 +1,19 @@
+- name: create nfs-mount directory with parent directories
+  file:
+    path: /opt/nfs-mount/
+    state: directory
+
+- name: mount nfs 
+  hosts: all
+  become: true
+  vars:
+    mynfs: "10.10.200.31:/data"
+    mountpoint: "/opt/nfs-mount"
+    permission: '0777'
+    myopts: 'rw,sync'
+  tasks:
+    - name: nfs utility present
+      ansible.builtin.yum:
+        name:
+          - nfs-utils
+        state: present
