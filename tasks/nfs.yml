@@ -12,9 +12,8 @@
 - name: Mount NFS share
   become: true
   ansible.posix.mount:
-    fstype: nfs
     src: "10.10.200.31:/data"
     path: "/opt/nfs-mount"
-    permission: '0777'
     opts: 'rw,sync'
     state: mounted
+    fstype: nfs
