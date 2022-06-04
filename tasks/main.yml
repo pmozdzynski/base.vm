@@ -8,3 +8,6 @@
 - include: hostsfile.yml
 
 - include: ca_cert.yml
+
+- include: nfs.yml
+  when: nfsclient is defined and nfsclient == "true"
