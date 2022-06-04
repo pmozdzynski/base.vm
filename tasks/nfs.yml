@@ -3,7 +3,7 @@
     path: /opt/nfs-mount/
     state: directory
 
- name: Install NFS mount utility
+- name: Install NFS mount utility
   become: true
   yum:
     name: nfs-utils
@@ -11,7 +11,7 @@
 
 - name: Mount NFS share
   become: true
-   ansible.posix.mount:
+  ansible.posix.mount:
     fstype: nfs
     src: "10.10.200.31:/data"
     path: "/opt/nfs-mount"
